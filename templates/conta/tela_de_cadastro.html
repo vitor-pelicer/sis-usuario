@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela_de_cadastro</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: linear-gradient(90deg, cyan, yellow);
+        }
+        div{
+            background-color: rgba(0,0,0,0.8);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 80px;
+            border-radius: 40px;
+            color: white;
+        }
+        input{
+            padding: 15px;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            border-radius: 5px;
+        }
+        button{
+            background-color: whitesmoke;
+            border: none;
+            padding: 5px;
+            outline: none;
+            width: 50%;
+            border-radius: 5px;
+        }
+        a{
+            color: lightslategrey;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li>
+                    <div class="alert alert-success"> {{message}} </div>
+                </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <h1>Cadastro</h1>
+        <br><br>
+        Nome completo*:<br />
+        <form class="cad_form" method="post">
+            {% csrf_token %}
+            <input type="text" name="nome" placeholder="Nome completo">
+            <br><br>
+            Nome de usuário*:<br />
+            <input type="text" name="user" placeholder="Nome de usuário">
+            <br><br>
+            Data de nascimento*:<br />
+            <input type="date" name="data_nasc">
+            <br><br>
+            Senha:<br />
+            <input type="password" name="password" placeholder="Senha">
+            <br><br>
+            <button type="submit">Enviar</button>
+        </form>
+        <br><br>
+        <a href="http://127.0.0.1:8000/login">Já possui cadastro</a>
+        {% if error %}
+            <p style='color: red'>{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

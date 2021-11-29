@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Login</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: linear-gradient(90deg, cyan, yellow);
+        }
+        div{
+            background-color: rgba(0,0,0,0.8);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 80px;
+            border-radius: 40px;
+            color: white;
+        }
+        button{
+            background-color: whitesmoke;
+            border: none;
+            padding: 5px;
+            outline: none;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+    </style>
+    
+</head>
+<body>
+    <div>
+        <h1>Download dos usuários</h1>
+        <form class="Enviar_arquivo" method="post">
+            {% csrf_token %}
+            <br><br>
+            <button type="submit">Download</button>
+            <br><br>
+            
+        </form>
+        
+    </div>
+</body>
+</html>
